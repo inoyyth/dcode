@@ -92,13 +92,21 @@ class Welcome extends CI_Controller {
 		$encrypted = $this->encryption->encrypt($string);
 		if ( !empty($string) )
 		{
-			$encrypted = strtr($encrypted, array('/' => '~'));
+			$encrypted = strtr($encrypted, array(
+				'+' => '.',
+				'=' => '-',
+				'/' => '~'
+			));
 		}
 		return $encrypted;
 	}
 
 	function decode($string) {
-		$string = strtr($string, array('~' => '/'));
+		$string = strtr($string, array(
+			'.' => '+',
+			'-' => '=',
+			'~' => '/'
+		));
 		return $this->encryption->decrypt($string);
 	}
 }
