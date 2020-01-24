@@ -336,7 +336,7 @@
         });
         var jsSocials = $("#share").jsSocials({
             url: "<?php echo base_url() . 'referral?code='. $this->session->userdata('referral');?>",
-            text: "Yuk ikutan isi survey ini dan dapatkan hadianya!!!",
+            text: "Yuk ikutan isi survey ini dan dapatkan hadiahnya!!!",
             showLabel: false,
             showCount: false,
             shareIn: "popup",
