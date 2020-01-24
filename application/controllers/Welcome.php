@@ -85,6 +85,6 @@ class Welcome extends CI_Controller {
 			$this->db->insert('share_counter', $data);
 		}
 
-		redirect('/');
+		redirect('https://cplcps.com/?a=2210&c=493078&s1=');
 	}
 }

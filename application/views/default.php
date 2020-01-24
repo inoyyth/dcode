@@ -52,7 +52,7 @@
 				      </button>
 
 				      <!-- Text Logo -->
-				      <a class="navbar-brand" href="index.html"><i class="fa fa-book" aria-hidden="true"></i> DeCode</a>
+				      <!-- <a class="navbar-brand" href="index.html"><i class="fa fa-book" aria-hidden="true"></i> DeCode</a> -->
 
 				      <!-- Image Logo -->
 				      <!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png"></a> -->
@@ -66,7 +66,7 @@
 					        <li><a href="#mu-book-overview">Ikut Kuis!</a></li>
                             <li><a href="#mu-author">Term & Condition</a></li>
                             <?php if ($this->session->userdata('id') == NULL) { ?>
-                            <li><a href="#mu-contact">Daftar/Login</a></li>
+
                             <?php } else { ?>
                             <li><a href="<?php echo base_url('welcome/logout');?>">Logout</a></li>
                             <li><a href="#">Hai, <?php echo $this->session->userdata('name');?></a></li>
@@ -115,17 +115,78 @@
 					<div class="col-md-12">
 						<div class="mu-book-overview-area">
 							<div class="mu-heading-area">
-								<h2 class="mu-heading-title">Cara Mengikuti Kuis</h2>
+								<h2 class="mu-heading-title">Cara Mengikuti</h2>
                                 <span class="mu-header-dot"></span>
                                 <div class="text-left" style="font-weight: bolder;font-size:15px;">
                                     <p>
                                         1. Login/Daftar terlebih dahulu.
                                     </p>
+                                    <?php if ($this->session->userdata('id') == NULL) { ?>
                                     <p>
-                                        2. Isi form Dcode.
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">Login</a></li>
+                                            <li role="presentation"><a href="#register" aria-controls="register" role="tab" data-toggle="tab">Register</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane" id="register">
+                                                <!-- Start Register Content -->
+                                                <div class="mu-contact-content">
+
+                                                    <div id="form-messages"></div>
+                                                    <form id="ajax-register" method="post" action="<?php echo base_url('welcome/save_register');?>" class="mu-contact-form">
+                                                        <div class="form-group">
+                                                            <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">             
+                                                            <input type="text" class="form-control" placeholder="Nama" id="name" name="name" required>
+                                                        </div>
+                                                        <div class="form-group">                
+                                                            <input type="email" class="form-control" placeholder="Email" id="email" name="email" required>
+                                                        </div>
+                                                        <div class="form-group">                
+                                                            <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
+                                                        </div>
+                                                        <div class="form-group">         
+                                                            <input type="number" class="form-control" placeholder="No Handphone" id="handphone" name="handphone" required>
+                                                        </div>
+                                                        <div class="form-group">                
+                                                            <input type="text" class="form-control datepicker" placeholder="Tgl Lahir" id="birth_date" name="birth_date" required>
+                                                        </div>      
+                                                        <div class="form-group">                
+                                                            <select class="form-control" id="gender" name="gender">
+                                                                <option value="P" selected>Pria</option>
+                                                                <option value="W">Wanita</option>
+                                                            </select>
+                                                        </div>  
+                                                        <button type="submit" class="mu-send-msg-btn"><span>SUBMIT</span></button>
+                                                    </form>
+
+                                                </div>
+                                                <!-- End Register Content -->
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane active" id="login">
+                                                <!-- Start login Content -->
+                                                <div class="mu-contact-content">
+                                                    <div id="form-messages"></div>
+                                                    <form id="ajax-login" method="post" action="<?php echo base_url('welcome/login');?>" class="mu-contact-form">
+                                                        <div class="form-group">
+                                                            <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">             
+                                                            <input type="email" class="form-control" placeholder="Email" id="email_login" name="email_login" required>
+                                                        </div>
+                                                        <div class="form-group">                
+                                                            <input type="password" class="form-control" placeholder="Password" id="password_login" name="password_login" required>
+                                                        </div>
+                                                        <button type="submit" class="mu-send-msg-btn"><span>SUBMIT</span></button>
+                                                    </form>
+                                                </div>
+                                                <!-- End Login Content -->
+                                            </div>
+                                        </div>
+                                    </p>
+                                    <?php } ?>
+                                    <p>
+                                        2. Isi form <a style="color: blue;" target="_blank" href="https://cplcps.com/?a=2210&c=493078&s1=">Dcode</a>.
                                     </p>
                                     <p>
-                                        3. Share link referal kamu ke 10 teman.
+                                        3. Share link referal kamu ke 10 teman <i>(Login untuk mendapatkan link referal kamu)</i>.
                                     </p>
                                 </div>
                                 <?php if ($this->session->userdata('id') != NULL) { ?>
@@ -174,89 +235,6 @@
 			</div>
 		</section>
         <!-- End Author -->
-        
-        <!-- Start Register -->
-        <?php if ($this->session->userdata('id') == NULL) { ?>
-		<section id="mu-contact">
-			<div class="container">
-				<div class="row">
-                    <div class="col-md-6" style="border-right: 1px solid;">
-						<div class="mu-contact-area">
-
-							<div class="mu-heading-area">
-								<h2 class="mu-heading-title">Register</h2>
-								<span class="mu-header-dot"></span>
-								<p>Silahkan lengkapi data anda sesuai dengan kolom isian dibawah ini:</p>
-							</div>
-
-							<!-- Start Register Content -->
-							<div class="mu-contact-content">
-
-								<div id="form-messages"></div>
-								<form id="ajax-register" method="post" action="<?php echo base_url('welcome/save_register');?>" class="mu-contact-form">
-									<div class="form-group">
-                                        <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">             
-										<input type="text" class="form-control" placeholder="Nama" id="name" name="name" required>
-									</div>
-									<div class="form-group">                
-										<input type="email" class="form-control" placeholder="Email" id="email" name="email" required>
-                                    </div>
-                                    <div class="form-group">                
-										<input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
-                                    </div>
-                                    <div class="form-group">         
-										<input type="number" class="form-control" placeholder="No Handphone" id="handphone" name="handphone" required>
-                                    </div>
-                                    <div class="form-group">                
-										<input type="text" class="form-control datepicker" placeholder="Tgl Lahir" id="birth_date" name="birth_date" required>
-									</div>      
-									<div class="form-group">                
-										<select class="form-control" id="gender" name="gender">
-                                            <option value="P" selected>Pria</option>
-                                            <option value="W">Wanita</option>
-                                        </select>
-									</div>  
-									<button type="submit" class="mu-send-msg-btn"><span>SUBMIT</span></button>
-						        </form>
-
-							</div>
-							<!-- End Register Content -->
-
-						</div>
-                    </div>
-                    <div class="col-md-5">
-						<div class="mu-contact-area">
-
-							<div class="mu-heading-area">
-								<h2 class="mu-heading-title">Login</h2>
-								<span class="mu-header-dot"></span>
-							</div>
-
-							<!-- Start Register Content -->
-							<div class="mu-contact-content">
-
-								<div id="form-messages"></div>
-								<form id="ajax-login" method="post" action="<?php echo base_url('welcome/login');?>" class="mu-contact-form">
-									<div class="form-group">
-                                        <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">             
-										<input type="email" class="form-control" placeholder="Email" id="email_login" name="email_login" required>
-									</div>
-                                    <div class="form-group">                
-										<input type="password" class="form-control" placeholder="Password" id="password_login" name="password_login" required>
-                                    </div>
-									<button type="submit" class="mu-send-msg-btn"><span>SUBMIT</span></button>
-						        </form>
-
-							</div>
-							<!-- End Register Content -->
-
-						</div>
-                    </div>
-				</div>
-			</div>
-        </section>
-        <?php } ?>
-		<!-- End Register -->
 	</main>
 	
 	<!-- End main content -->	
@@ -266,12 +244,12 @@
 	<footer id="mu-footer" role="contentinfo">
 		<div class="container">
 			<div class="mu-footer-area">
-				<div class="mu-social-media">
+				<!-- <div class="mu-social-media">
 					<a href="#"><i class="fa fa-facebook"></i></a>
 					<a href="#"><i class="fa fa-twitter"></i></a>
 					<a href="#"><i class="fa fa-google-plus"></i></a>
 					<a href="#"><i class="fa fa-linkedin"></i></a>
-				</div>
+				</div> -->
 				<p class="mu-copyright">&copy; Copyright <a rel="nofollow" href="http://markups.io">markups.io</a>. All right reserved.</p>
 			</div>
 		</div>
@@ -303,6 +281,11 @@
         $(document).ready(function(){
             $('.datepicker').datepicker({
                 format: 'dd/mm/yyyy',
+            });
+
+            $('#myTabs a').click(function (e) {
+                e.preventDefault()
+                $(this).tab('show')
             });
 
             $("#ajax-register").submit(function(e) {
