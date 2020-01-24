@@ -194,6 +194,7 @@
                                     Share Link kamu ke teman-teman kamu melalui media social dibawah ini:
                                 </div>
                                 <div id="share" class="text-center" style="margin-top:20px;"></div>
+                                <div class="fb-share-button" data-href="https://www.facebook.com/sharer/sharer.php?u=<?php echo base_url() . 'referral?code='. $this->session->userdata('referral');?>" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fsharer%2Fsharer.php%3Fu%3Dhttps%253A%252F%252Frevanishop.com%252Fdcode%252Freferral%253Fcode%253D9791edb80b319a559f3d7223f64f05365bdd499e973201ab9b3513862e2b6f52f60eb285eeefd5604c65f5dbce5b8b0665385ff18f6e973c213f95cd35df1f12%257EBxh4zEhfcJPCvtcYIQgdR%2BE4uxpKilQva6CMGzEIkU%253D&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                                 <?php } ?>
                             </div>
 						</div>
@@ -277,6 +278,8 @@
 	<script type="text/javascript" src="<?php echo base_url('themes/assets/js/custom.js');?>"></script>
 	
     <script src="<?php echo base_url('assets/jssocials-1.4.0/dist/jssocials.min.js');?>"></script>
+
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=1463119233924371&autoLogAppEvents=1"></script>
     <script>
         $(document).ready(function(){
             $('.datepicker').datepicker({
@@ -340,7 +343,7 @@
             showLabel: false,
             showCount: false,
             shareIn: "popup",
-            shares: ["email", "twitter", "facebook", "whatsapp"]
+            shares: ["email", "twitter", "whatsapp"]
         });
         jsSocials.setDefaults("twitter", {
             via: "artem_tabalin",
