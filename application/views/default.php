@@ -340,7 +340,7 @@
             showLabel: false,
             showCount: false,
             shareIn: "popup",
-            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "whatsapp"]
+            shares: ["email", "twitter", "facebook", "whatsapp"]
         });
         jsSocials.setDefaults("twitter", {
             via: "artem_tabalin",
