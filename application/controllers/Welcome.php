@@ -59,7 +59,7 @@ class Welcome extends CI_Controller {
 
 		$query = $this->db->get_where('users', array('email' => $email, 'password' => $password))->row_array();
 		if ($query) {
-			$this->session->set_userdata(array_merge($query, ['referral' => $this->encryption->encrypt($query['id'])]));
+			$this->session->set_userdata(array_merge($query, ['referral' => $this->encode($query['id'])]));
 			echo json_encode(['status' => 'success', 'data' => []]);
 			exit;
 		} else {
@@ -74,7 +74,7 @@ class Welcome extends CI_Controller {
 	}
 
 	public function referral() {
-		$code = $this->encryption->decrypt($this->input->get('code'));
+		$code = $this->decode($this->input->get('code'));
 		if ($code) {
 			$data = [
 				'users_id' => $code,
@@ -86,5 +86,19 @@ class Welcome extends CI_Controller {
 		}
 
 		redirect('https://cplcps.com/?a=2210&c=493078&s1=');
+	}
+
+	function encode($string) {
+		$encrypted = $this->encryption->encrypt($string);
+		if ( !empty($string) )
+		{
+			$encrypted = strtr($encrypted, array('/' => '~'));
+		}
+		return $encrypted;
+	}
+
+	function decode($string) {
+		$string = strtr($string, array('~' => '/'));
+		return $this->encryption->decrypt($string);
 	}
 }
