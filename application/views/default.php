@@ -354,13 +354,6 @@
             shareIn: "self"
         });
 
-        jsSocials.setDefaults("facebook", {
-            label: "E-mail",
-            logo: "fa fa-at",
-            to: "my.address@test.com",
-            shareIn: "self"
-        });
-
     </script>
   </body>
 </html>
