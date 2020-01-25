@@ -5,7 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Kindle : Home</title>
+    <title>Kuis berhadia samsung S10</title>
+    <meta name="description" content="Menangkan hadiah berupa voucher pulsa dan hadiah utama samsung S10" />
+    <meta name="DC.title" content="Kuis berhadian samsung S10" />
+    <meta name="geo.region" content="ID-JK" />
+    <meta name="geo.placename" content="jakarta utara" />
+    <meta name="geo.position" content="-0.789275;113.921327" />
+    <meta name="ICBM" content="-0.789275, 113.921327" />
+
+    <meta property="og:url" content="<?php echo current_url();?>" />
+    <meta property="og:type" content="event" />
+    <meta property="og:title" content="Kuis berhadiah voucher pulsa dan hadiah utama samsung S10" />
+    <meta property="og:description" content="Menangkan hadiah berupa voucher pulsa dan hadiah utama samsung S10" />
+    <meta property="og:image" content="<?php echo base_url('themes/assets/images/ebook.png');?>" />
+    <meta property="og:app_id" content="1463119233924371"  />
+
+    <meta name="twitter:card" content="event" />
+    <meta name="twitter:site" content="@usman.raezra" />
+    <meta name="twitter:creator" content="@nickbilton" />
+    <meta property="og:url" content=<?php echo base_url();?>" />
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/icon" href="<?php echo base_url('themes/assets/images/favicon.ico');?>"/>
     <!-- Font Awesome -->
