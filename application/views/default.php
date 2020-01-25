@@ -18,12 +18,14 @@
     <meta property="og:title" content="Kuis berhadiah voucher pulsa dan hadiah utama samsung S10" />
     <meta property="og:description" content="Menangkan hadiah berupa voucher pulsa dan hadiah utama samsung S10" />
     <meta property="og:image" content="<?php echo base_url('themes/assets/images/ebook.png');?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:updated_time" content="<?php echo strtotime(date('Y-m-d H:i:s'));?>" />
     <meta property="og:app_id" content="1463119233924371"  />
 
     <meta name="twitter:card" content="event" />
     <meta name="twitter:site" content="@usman.raezra" />
     <meta name="twitter:creator" content="@nickbilton" />
-    <meta property="og:url" content=<?php echo base_url();?>" />
+    <meta property="og:url" content="<?php echo base_url();?>" />
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/icon" href="<?php echo base_url('themes/assets/images/favicon.ico');?>"/>
     <!-- Font Awesome -->
