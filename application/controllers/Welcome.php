@@ -18,6 +18,11 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct() {
+        parent::__construct();
+        $this->load->model('Main_model');
+	}
+
 	public function index()
 	{
 		$this->load->view('default.php');
@@ -59,7 +64,9 @@ class Welcome extends CI_Controller {
 
 		$query = $this->db->get_where('users', array('email' => $email, 'password' => $password))->row_array();
 		if ($query) {
-			$this->session->set_userdata(array_merge($query, ['referral' => $this->encode($query['id'])]));
+			$point = $this->Main_model->getPoint($query['id']);
+			$already_claim = $this->Main_model->checkClaim($query['id']);
+			$this->session->set_userdata(array_merge($query, ['referral' => $this->encode($query['id']), 'point' => $point, 'already_claim' => $already_claim]));
 			echo json_encode(['status' => 'success', 'data' => []]);
 			exit;
 		} else {
@@ -105,4 +112,17 @@ class Welcome extends CI_Controller {
 		$string = strtr($string, array('~' => '/', '.' => '+'));
 		return $this->encryption->decrypt($string);
 	}
+
+	public function claim($user_id) {
+		$point = $this->Main_model->getPoint($user_id);
+		$already_claim = $this->Main_model->checkClaim($user_id);
+
+		if ($point >= 10 && $already_claim == NULL) {
+			$this->Main_model->saveClaim($user_id);
+			$this->session->set_userdata('already_claim', true);
+		}
+
+		redirect('/');
+	}
+
 }

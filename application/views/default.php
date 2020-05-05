@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158059697-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-158059697-1');
+    </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Kuis berhadia samsung S10</title>
-    <meta name="description" content="Menangkan hadiah berupa voucher pulsa dan hadiah utama samsung S10" />
-    <meta name="DC.title" content="Kuis berhadian samsung S10" />
+    <title>Kuis berhadiah pulsa dan emas batangan</title>
+    <meta name="description" content="Dapatkan Langsung Pulsa 25 Ribu dan Kesempatan Mendapatkan Emas Batangan" />
+    <meta name="DC.title" content=">Kuis berhadiah pulsa dan emas batangan" />
     <meta name="geo.region" content="ID-JK" />
     <meta name="geo.placename" content="jakarta utara" />
     <meta name="geo.position" content="-0.789275;113.921327" />
@@ -15,9 +25,12 @@
 
     <meta property="og:url" content="<?php echo current_url();?>" />
     <meta property="og:type" content="event" />
-    <meta property="og:title" content="Kuis berhadiah voucher pulsa dan hadiah utama samsung S10" />
-    <meta property="og:description" content="Menangkan hadiah berupa voucher pulsa dan hadiah utama samsung S10" />
-    <meta property="og:image" content="<?php echo base_url('themes/assets/images/ebook.png');?>" />
+    <meta property="og:title" content="Dapatkan Langsung Pulsa 25 Ribu dan Kesempatan Mendapatkan Emas Batangan" />
+    <meta property="og:description" content="Menangkan hadiah berupa voucher pulsa dan hadiah utama emas batangan" />
+    <meta property="og:image" content="<?php echo base_url('assets/images/kuis-hadiah.jpeg');?>" />
+    <meta property="og:image:type" content="image/png" /> 
+    <meta property="og:image:width" content="894" /> 
+    <meta property="og:image:height" content="657" />
     <meta property="og:type" content="website" />
     <meta property="og:updated_time" content="<?php echo strtotime(date('Y-m-d H:i:s'));?>" />
     <meta property="og:app_id" content="1463119233924371"  />
@@ -107,13 +120,13 @@
 
 				<div class="col-md-6 col-sm-6 col-sm-push-6">
 					<div class="mu-hero-right">
-						<img src="<?php echo base_url('themes/assets/images/ebook.png');?>" alt="Ebook img">
+						<img src="<?php echo base_url('assets/images/kuis-hadiah.jpeg');?>" alt="Ebook img">
 					</div>
 				</div>
 
 				<div class="col-md-6 col-sm-6 col-sm-pull-6">
 					<div class="mu-hero-left">
-						<h1>Dapatkan Langsung Pulsa 25 Ribu dan kesempatan mendapatkan Handphone Samsung S10</h1>
+						<h1>Dapatkan Langsung Pulsa 25 Ribu dan Kesempatan Mendapatkan Voucher Belanja Jutaan Rupiah dan Emas Batangan</h1>
 						<a href="#mu-book-overview" class="mu-primary-btn">Ikuti Kuisnya Sekarang!</a>
 						<span>*Syarat dan Ketentuan Berlaku.</span>
 					</div>
@@ -144,11 +157,11 @@
                                     <?php if ($this->session->userdata('id') == NULL) { ?>
                                     <p>
                                         <ul class="nav nav-tabs" role="tablist">
-                                            <li role="presentation" class="active"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">Login</a></li>
-                                            <li role="presentation"><a href="#register" aria-controls="register" role="tab" data-toggle="tab">Register</a></li>
+                                            <li role="presentation" class="active"><a href="#register" aria-controls="register" role="tab" data-toggle="tab">Register</a></li>
+                                            <li role="presentation"><a href="#login" aria-controls="login" role="tab" data-toggle="tab">Login</a></li>
                                         </ul>
                                         <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane" id="register">
+                                            <div role="tabpanel" class="tab-pane active" id="register">
                                                 <!-- Start Register Content -->
                                                 <div class="mu-contact-content">
 
@@ -182,7 +195,7 @@
                                                 </div>
                                                 <!-- End Register Content -->
                                             </div>
-                                            <div role="tabpanel" class="tab-pane active" id="login">
+                                            <div role="tabpanel" class="tab-pane" id="login">
                                                 <!-- Start login Content -->
                                                 <div class="mu-contact-content">
                                                     <div id="form-messages"></div>
@@ -202,8 +215,9 @@
                                         </div>
                                     </p>
                                     <?php } ?>
+                                    <p>&nbsp;</p>
                                     <p>
-                                        2. Isi form <a style="color: blue;" target="_blank" href="https://cplcps.com/?a=2210&c=493078&s1=">Dcode</a>.
+                                        2. Isi form <a style="color: blue;" target="_blank" href="https://cost.affcost.com/click?campaign_id=156&pub_id=586&url_id=5&p1={rik-mem3}&source={rik-02}">KUIS DISINI</a>.
                                     </p>
                                     <p>
                                         3. Share link referal kamu ke 10 teman <i>(Login untuk mendapatkan link referal kamu)</i>.
@@ -214,7 +228,14 @@
                                     Share Link kamu ke teman-teman kamu melalui media social dibawah ini:
                                 </div>
                                 <div id="share" class="text-center" style="margin-top:20px;"></div>
-                                <?php } ?>
+
+                                <?php  if($this->session->userdata('point') >= 10 && $this->session->userdata('already_claim') == NULL) { ?>
+                                    <br>
+                                    <br>
+                                    <p style="color:blue;"><b>Selamat, anda telah melakukan referal lebih dari 10X, Ambil Hadiahmu di sini: </b></p>
+                                    <br>
+                                    <a class="btn btn-success" href="<?php echo base_url('klaim-hadiah/'.$this->session->userdata('id'));?>"><b>Ambil Hadiah !!!</b></a>
+                                <?php }} ?>
                             </div>
 						</div>
 					</div>
@@ -239,12 +260,20 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="mu-author-info">
-                                            <p>1. Pemenang bisa langsung mendapatkan pulsa apabila; sudah share ke 10 teman dan semua mengisi form Dcode.</p>
-                                            <p>2. Perbayak share, karena kesempatan akan lebih besar untuk mendapatkan Handphone <b>Samsung S10</b>.</p>
-                                            <p>3. Akan ada 500 pemenang pulsa dan 1 pemenang Handphone setiap bulannya.</p>
-                                            <p>4. Pengumuman bisa dilihat di FB (FaceBook) fan page Harian Ekonomi <b>tanggal 28 setiap bulannya</b>.</p>
+                                            <p>1. Pemenang bisa langsung mendapatkan pulsa apabila; sudah share ke 10 teman dan semua mengisi form "KUIS DISINI".</p>
+                                            <p>2. Perbayak share, karena kesempatan akan lebih besar untuk mendapatkan voucher belanja jutaan rupiah dan <b>Emas Batangan</b>.</p>
+                                            <p>3. Akan ada 500 pemenang pulsa dan 1 pemenang Emas batangan setiap bulannya.</p>
                                         </div>
 									</div>
+                                    <div class="col-md-12">
+                                        <div class="mu-author-info">
+                                            <br>
+                                            <br>
+                                            <p style="text-align:center;"><i>"Seluruh Hadiah  disediakan dan diberikan hanya oleh pihak KuisHarianEkonomi,yang entitasnya 
+                                            berbeda dengan rekan kerja dalam pelaksanaan kuis ini (DCODE & Provider yang tertera)"</i>
+                                            </p>
+                                        </div>
+                                    </div>
 								</div>
 							</div>
 							<!-- End Author Content -->
@@ -277,6 +306,31 @@
 	</footer>
 	<!-- End footer -->
 
+    <!-- modal -->
+    <!-- <div class="modal fade bs-example-modal-lg" tabindex="-1" id="myModal" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog  modal-dialog-center modal-lg" role="document">
+            <div class="modal-content">
+                <img class="img-responsive" src="<?php echo base_url('assets/images/modal-hadiah.jpeg');?>">
+            </div>
+        </div>
+    </div> -->
+<!-- end modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content">
+                <button type="button" class="close button-closex" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <a style="color: blue;" target="_blank" href="https://cost.affcost.com/click?campaign_id=156&pub_id=586&url_id=5&p1={rik-mem3}&source={rik-02}">
+                    <img class="img-responsive" src="<?php echo base_url('assets/images/modal-hadiah.jpeg');?>">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 	
 	
     <!-- jQuery library -->
@@ -299,6 +353,7 @@
     <script src="<?php echo base_url('assets/jssocials-1.4.0/dist/jssocials.min.js');?>"></script>
     <script>
         $(document).ready(function(){
+            $('#myModal').modal('show');
             $('.datepicker').datepicker({
                 format: 'dd/mm/yyyy',
             });
